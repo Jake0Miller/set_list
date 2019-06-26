@@ -3,7 +3,6 @@ class Artist < ApplicationRecord
   validates_presence_of :name
 
   def average_song_length
-    tot_length = songs.sum { |song| song.length }
-    tot_length / songs.length
+    songs.sum { |song| song.length } / songs.length
   end
 end
