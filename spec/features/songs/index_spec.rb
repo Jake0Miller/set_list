@@ -6,7 +6,7 @@ RSpec.describe "Songs Index" do
       artist_1 = Artist.create!(name: 'Britney')
       artist_2 = Artist.create!(name: 'Haddaway')
       song_1 = artist_1.songs.create!(title: "Hit Me Baby One More Time", length: 345, play_count: 10_000_000)
-      song_2 = artist_2.songs.create!(title: "What Is Love", length: 543, play_count: 2)
+      song_2 = Song.create!(title: "What Is Love", length: 543, play_count: 2, artist_id: artist_2.id)
 
       visit songs_path
 
