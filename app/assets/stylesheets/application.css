@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.song {
+  background-color: red;
+}
+
+#song-2 {
+  background-color: blue;
+}
