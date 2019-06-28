@@ -2,16 +2,16 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   def index
-    @songs = Song.all
+    if params[:artist_id].nil?
+      @songs = Song.all
+    else
+      @artist = Artist.find(params[:artist_id])
+      @songs = Song.all.select { |song| song.artist_id == @artist.id }
+    end
   end
 
   def show
     @song = Song.find(params[:id])
-  end
-
-  def artist_songs
-    @artist = Artist.find(params[:artist_id])
-    @songs = Song.all.select { |song| song.artist_id == @artist.id }
   end
 
   def new

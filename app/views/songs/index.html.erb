@@ -1,6 +1,10 @@
-<div id='title'>
-  <h1>All Songs</h1>
-</div>
+<h1 id='title'>
+  All Songs
+  <% unless @artist.nil? %>
+    for
+    <%= @artist.name %>
+  <% end %>
+</h1>
 
 <% @songs.each do |song| %>
   <div id='song-<%= song.id %>' class='song'>

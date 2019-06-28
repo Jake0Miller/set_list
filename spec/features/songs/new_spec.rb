@@ -7,7 +7,7 @@ RSpec.describe "creating a new song" do
     length = 231
     play_count = 7849
 
-    visit new_song_path(artist)
+    visit new_artist_song_path(artist)
 
     fill_in :title, with: title
     fill_in :length, with: length
