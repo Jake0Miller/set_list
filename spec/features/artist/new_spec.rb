@@ -24,7 +24,6 @@ RSpec.describe 'New Artist' do
 
       expect(page).to have_content('Artist not created: Required information missing.')
       expect(page).to have_button('Create Artist')
-      expect(current_path).to eq(new_artist_path)
     end
   end
 
