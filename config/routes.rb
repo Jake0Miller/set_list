@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :artists, except: :show do
     resources :songs, only: [:new, :create, :index]
   end
+  get '/playlists', to: 'playlists#index'
+  patch '/cart/:song_id', to: 'carts#add_song', as: :cart
 
   # get '/artists/:artist_id/songs/new', to: 'songs#new', as: :new_song
   # get '/artists/:artist_id/songs', to: 'songs#artist_songs', as: :artist_songs
