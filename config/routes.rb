@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   # get '/songs', to: 'songs#index', as: :songs
   # get '/songs/:id', to: 'songs#show', as: :song
 
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   resources :artists, except: :show do
     resources :songs, only: [:new, :create, :index]
   end
+  resources :users, only: [:new, :create, :show]
+
   get '/playlists', to: 'playlists#index'
   patch '/cart/:song_id', to: 'carts#add_song', as: :cart
 

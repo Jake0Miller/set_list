@@ -13,7 +13,7 @@ RSpec.describe 'Edit Artist' do
         expect(current_path).to eq(edit_artist_path(beatles))
 
         fill_in 'Name', with: 'The Beatles'
-        click_on 'Create Artist'
+        click_on 'Edit Artist'
 
         expect(current_path).to eq(artists_path)
         expect(page).to have_content('The Beatles')
