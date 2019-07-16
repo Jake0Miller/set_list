@@ -18,6 +18,10 @@
       <%= content_tag :div, message, class: type %>
     <% end %>
 
+    <% if @current_user %>
+      <h1>Welcome, <%= @current_user.user_name %>!</h1>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

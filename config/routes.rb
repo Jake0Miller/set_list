@@ -17,6 +17,15 @@ Rails.application.routes.draw do
 
   get '/playlists', to: 'playlists#index'
   patch '/cart/:song_id', to: 'carts#add_song', as: :cart
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy', as: :logout
+
+  namespace :admin do
+    resources :articles, only: [:new, :create, :destroy]
+  end
+  
+  resources :article, only: [:show, :index]
 
   # get '/artists/:artist_id/songs/new', to: 'songs#new', as: :new_song
   # get '/artists/:artist_id/songs', to: 'songs#artist_songs', as: :artist_songs
